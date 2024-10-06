@@ -98,7 +98,7 @@ Text Classification with a Zero-Shot Mode
 By
 </p>
 <p align="center"><b>
-David Broneske, Nikhilkumar Italya, & Fabian
+David Broneske, Nikhilkumar Italiya, & Fabian
 Mierisch
 </b></p>
 
