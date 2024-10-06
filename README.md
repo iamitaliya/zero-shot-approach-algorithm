@@ -192,23 +192,25 @@ containing an answer to the question.
 
 This algorithm outlines the main steps for classifying text instances based on features. 
 
-![Algorithm 1](./algorithm_1.jpg)
+<!-- ![Algorithm 1](./algorithm_1.jpg) -->
+<img src="algorithm_1.jpg" alt="Algorithm 1" width="450"/>
 
 #### Algorithm 2: Top n Features Baseline
 
 This algorithm outlines the steps for classifying text instances using the top `n` features based on their probability scores.
 
 
-![Algorithm 2](./algorithm_2.jpg)
-
+<!-- ![Algorithm 2](./algorithm_2.jpg) -->
+<img src="algorithm_2.jpg" alt="Algorithm 2" width="450"/>
 
 #### Algorithm 3: Decisive Feature Baseline
 
 This algorithm outlines the steps for classifying text instances using the most decisive feature combination.
 
 
-![Algorithm 3](./algorithm_3.jpg)
+<!-- ![Algorithm 3](./algorithm_3.jpg) -->
 
+<img src="algorithm_3.jpg" alt="Algorithm 3" width="450"/>
 
 ### Appendix C: RUNTIME OF BASELINES AND THE APPROACH
 
