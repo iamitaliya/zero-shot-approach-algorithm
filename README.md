@@ -188,136 +188,26 @@ containing an answer to the question.
 
 ### Appendix B:  PSEUDO CODE FOR MAIN ALGORITHM AND BASELINES
 
-#### Algorithm 1: Pseudo Code - Main Algorithm
+#### Algorithm 1: Main Algorithm
 
 This algorithm outlines the main steps for classifying text instances based on features. 
 
-##### Inputs
-- **text_instances**: Text instances 
-- **features_cat1**: Feature list of class 1 
-- **features_cat2**: Feature list of class 2 
-- **agg**: Calculate the feature mean and aggregate it
-- **certainty_lvl**: Certainty level  
-- **confidence_lvl**: Prediction confidence
-- **ord**: Feature ordering and permutation method
+![Algorithm 1](./algorithm_1.jpg)
 
-##### Output
-- Classified class or "undecided"
-
-##### Algorithm Steps
-
-1. **Initialize Variables**
-   - `agg_prob_1 = 0`
-   - `agg_prob_2 = 0`
-   - `prob_reduction = 0.5` 
-
-2. **Order the Feature Combinations**
-   - `perms = ord(features_cat1, features_cat2)`
-
-3. **Begin Classification**
-   - For each text instance `i` in `text_instances`:
-     - For each feature combination `p` in `perms`:
-       - Calculate the probability score of each feature:
-         - `prob_1, prob_2 = calculate_probs(text_instance[i], p)`
-         
-       - Check if the difference between class features is larger than the Prediction Confidence:
-         - If `abs(prob_1 - prob_2) > confidence_lvl`:
-           - `prob_1 = prob_1 - prob_reduction`
-           - `prob_2 = prob_2 - prob_reduction`
-           
-           - **Aggregate Feature Means**:
-             - `agg_prob_1 = agg(agg_prob_1, prob_1)`  
-             - `agg_prob_2 = agg(agg_prob_2, prob_2)`
-             
-           - **Make Classification Decision**:
-             - If `agg_prob_1 > certainty_lvl`:
-               - Return `Class 1`
-             - Else If `agg_prob_2 > certainty_lvl`:
-               - Return `Class 2`
-               
-4. **For all unclassified text instances**:
-   - Return `Undecided`
-
-
-#### Algorithm 2: Pseudo Code - Top n Features Baseline
+#### Algorithm 2: Top n Features Baseline
 
 This algorithm outlines the steps for classifying text instances using the top `n` features based on their probability scores.
 
-##### Inputs
-- **text_instances**: Text instances
-- **features_class1**: Feature list of class 1  
-- **features_class2**: Feature list of class 2 
-- **feature_lists**: Combined feature lists of class 1 and 2
 
-##### Output
-- Classified category
-
-##### Algorithm Steps
-
-1. **Sort Predictions**
-   - `sort(predictions_each_feature)`
-
-2. **Determine Top n Features**
-   - `top_n = min(length(features_class1), length(features_class2))`
-   - If `top_n` is even:
-     - `top_n = top_n + 1`
-
-3. **Begin Classification**
-   - For each text instance `i` in `text_instances`:
-     - Calculate the probability score of combined feature lists:
-       - `prob_1, prob_2 = calculate_probs(text_instance[i], feature_lists)`
-       
-     - Take the `n` number of features with the highest probability:
-       - `order_predictions = ord(predictions_each_feature)`
-       - `top_n_list = order_predictions[0...top_n-1]`
-       
-     - Calculate the probability score of "Top n" features:
-       - `prob_1, prob_2 = calculate_probs(text_instance[i], top_n_list)`
-       
-     - **Implement Majority Voting**:
-       - `count_cat1, count_cat2 = count_by_cat(top_n_list)`
-       
-     - **Make Classification Decision**:
-       - If `count_cat1 > count_cat2`:
-         - Return `Class 1`
-       - Else:
-         - Return `Class 2`
+![Algorithm 2](./algorithm_2.jpg)
 
 
-#### Algorithm 3: Pseudo Code - Decisive Feature Baseline
+#### Algorithm 3: Decisive Feature Baseline
 
 This algorithm outlines the steps for classifying text instances using the most decisive feature combination.
 
-##### Inputs
-- **text_instances**: Text instances
-- **features_class1**: Feature list of class 1  
-- **features_class2**: Feature list of class 2
 
-##### Output
-- Classified category
-
-##### Algorithm Steps
-
-1. **Initialize Variables**
-   - `permutations = [features_class1] * [features_class2]`
-   - `max_prob_perm`
-
-2. **Begin Classification**
-   - For each text instance `i` in `text_instances`:
-     - **Find Most Decisive Label Combination**:
-       - For each permutation `p` in `permutations`:
-         - **Make Class Prediction**:
-           - `curr_perm_prob = calculate_prob(text_seq, p)`
-           
-         - **Choose the Most Decisive Prediction**:
-           - If `curr_perm_prob > max_prob_perm`:
-             - `max_prob_perm = curr_perm_prob`
-
-3. **Make Classification Decision**:
-   - If `max_prob_cat(max_prob_perm) = cat1`:
-     - Return `Class 1`
-   - Else:
-     - Return `Class 2`
+![Algorithm 3](./algorithm_3.jpg)
 
 
 ### Appendix C: RUNTIME OF BASELINES AND THE APPROACH
