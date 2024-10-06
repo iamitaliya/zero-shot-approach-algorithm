@@ -88,18 +88,27 @@ You can use the model from the Hugging Face repository:
 
 ## Appendix
 
-The PDF version is available [here](./Appendix.pdf).
-
-### Appendix A: Features
 <p align="center">
-
-for
-“Tell Me More! Using Multiple Features for Binary
-Text Classification with a Zero-Shot Model”
-by
+For
+</p>
+<p align="center"><b>Tell Me More! Using Multiple Features for Binary
+Text Classification with a Zero-Shot Mode
+</b></p>
+<p align="center">
+By
+</p>
+<p align="center"><b>
 David Broneske, Nikhilkumar Italya, & Fabian
 Mierisch
-</p>
+</b></p>
+
+<br>
+<br>
+
+The PDF version is available [here](./Appendix.pdf).
+
+
+### Appendix A: Features
 
 #### Table I: Features Waiting List
 
@@ -209,7 +218,7 @@ This algorithm outlines the main steps for classifying text instances based on f
    - For each text instance `i` in `text_instances`:
      - For each feature combination `p` in `perms`:
        - Calculate the probability score of each feature:
-         - `prob_1, prob_2 = calculate_probs(text_instance_{i}, p)`
+         - `prob_1, prob_2 = calculate_probs(text_instance[i], p)`
          
        - Check if the difference between class features is larger than the Prediction Confidence:
          - If `abs(prob_1 - prob_2) > confidence_lvl`:
@@ -256,23 +265,23 @@ This algorithm outlines the steps for classifying text instances using the top `
 3. **Begin Classification**
    - For each text instance `i` in `text_instances`:
      - Calculate the probability score of combined feature lists:
-       - `prob_1, prob_2 = calculate_probs(text_instance_{i}, feature_lists)`
+       - `prob_1, prob_2 = calculate_probs(text_instance[i], feature_lists)`
        
      - Take the `n` number of features with the highest probability:
        - `order_predictions = ord(predictions_each_feature)`
        - `top_n_list = order_predictions[0...top_n-1]`
        
      - Calculate the probability score of "Top n" features:
-       - `prob_1, prob_2 = calculate_probs(text_instance_{i}, top_n_list)`
+       - `prob_1, prob_2 = calculate_probs(text_instance[i], top_n_list)`
        
      - **Implement Majority Voting**:
        - `count_cat1, count_cat2 = count_by_cat(top_n_list)`
        
      - **Make Classification Decision**:
        - If `count_cat1 > count_cat2`:
-         - Return `1`
+         - Return `Class 1`
        - Else:
-         - Return `2`
+         - Return `Class 2`
 
 
 #### Algorithm 3: Pseudo Code - Decisive Feature Baseline
@@ -306,9 +315,9 @@ This algorithm outlines the steps for classifying text instances using the most 
 
 3. **Make Classification Decision**:
    - If `max_prob_cat(max_prob_perm) = cat1`:
-     - Return `1`
+     - Return `Class 1`
    - Else:
-     - Return `2`
+     - Return `Class 2`
 
 
 ### Appendix C: RUNTIME OF BASELINES AND THE APPROACH
