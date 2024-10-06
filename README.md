@@ -1,14 +1,16 @@
 # Zero-Shot Approach Documentation
 
-This repository contains the Python code utilized during the experiments conducted for the accompanying paper. Below, you will find detailed instructions on how to execute the code, and the [appendix](#appendix) is provided at the end of the document for additional reference.
+This repository contains the Python code utilized during the experiments conducted for the accompanying paper **Tell Me More! Using Multiple Features for Binary
+Text Classification with a Zero-Shot Model.** 
+Below, you will find detailed instructions on how to execute the code, and the [appendix](#appendix) is provided at the end of the document for additional reference.
 
 
 
 ## Dataset Requirements
 
-The dataset should be stored in an **Excel file** and must contain two mandatory columns:
+The dataset to be predicted should be stored in an **Excel file** and must contain two mandatory columns:
 
-1. **Id Column**: Represents the index of the text sequence. The name of the column should be `id`.
+1. **Id Column**: Represents the unique index of the text sequence. The name of the column should be `id`.
 2. **Text Column**: Stores the input text sequence to be predicted. The name of the column should be `text_sequence`.
 
 The name of the sheet should be `text_seq`.
@@ -89,13 +91,15 @@ You can use the model from the Hugging Face repository:
 The PDF version is available [here](./Appendix.pdf).
 
 ### Appendix A: Features
+<p align="center">
+
 for
 “Tell Me More! Using Multiple Features for Binary
 Text Classification with a Zero-Shot Model”
 by
 David Broneske, Nikhilkumar Italya, & Fabian
 Mierisch
-
+</p>
 #### Table I: Features Waiting List
 
 
@@ -118,7 +122,7 @@ Mierisch
 | Bitte füllen Sie alle Angaben aus        |                                            |
 
 
-Notes: Table shows the features for outcome classes "Yes" and "No" of the outcome Waiting List. Features aim to provide context for the classification of the algorithm while simultaneously comply with class definitions. Out of the 12'547 observations 9'976 (79.5%) were humanly labeled as a waiting list offer and 2'571 (20.49%) as not a waiting list offer.
+**Notes:** Table shows the features for outcome classes "Yes" and "No" of the outcome Waiting List. Features aim to provide context for the classification of the algorithm while simultaneously comply with class definitions. Out of the 12'547 observations 9'976 (79.5%) were humanly labeled as a waiting list offer and 2'571 (20.49%) as not a waiting list offer.
 
 #### Table II: Features Answer
 
@@ -152,7 +156,7 @@ Notes: Table shows the features for outcome classes "Yes" and "No" of the outcom
 | Mit dem Stand von heute kann ich Ihnen leider keinen Platz für Januar 2022 anbieten.    |                                                                                               |
 | Wir können nur Kinder aus dem Wohnumfeld aufnehmen, wenn Bedarf der Mitarbeiter gedeckt |                                                                                               |
 
-Notes: Table shows the features for outcome classes “Yes” and “No” of the outcome Slot Offer. Features aim to
+**Notes:** Table shows the features for outcome classes “Yes” and “No” of the outcome Slot Offer. Features aim to
 provide context for the classification of the algorithm while simultaneously complying with class definitions. Out of
 the 12’547 observations, 798 (6.4%) were humanly labeled as slot offers and 11’749 (93.6%) as not a slot offer
 
@@ -166,7 +170,7 @@ the 12’547 observations, 798 (6.4%) were humanly labeled as slot offers and 11
 | **Answer - Single Label Combination 1**       | Wir haben noch einen Platz frei                 | Wir haben keinen Platz frei                    |
 | **Answer - Single Label Combination 2**       | Wir haben einen Platz anzubieten                | Wir haben keinen Platz mehr anzubieten         |
 
-Notes: Table shows the features for outcome classes “Yes” and “No” of the outcome Answer 2. Features may or may not be
+**Notes:** Table shows the features for outcome classes “Yes” and “No” of the outcome Answer 2. Features may or may not be
 citations from actual emails (frequently used expressions and key words) and aim to provide context for the classification
 of the algorithm while simultaneously complying with class definitions. Out of the 12’547 observations, 10’148 (80.9%)
 were humanly labeled as containing an answer to the question “How can we apply for a slot?” and 2’399 (19.1%) as not
